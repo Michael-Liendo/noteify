@@ -18,15 +18,18 @@
 			password: Yup.string().required()
 		}),
 		onSubmit: async (values) => {
-			const request = await fetch(`http://localhost:7878/api/auth/register`, {
+			const request = await fetch('/signup', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(values)
 			});
 			const response = await request.json();
 
-			console.log(request, '\n');
-			console.log(response);
+			if (response.success) {
+				window.location.href = '/';
+			} else {
+				alert(response.error.message);
+			}
 		}
 	});
 </script>
