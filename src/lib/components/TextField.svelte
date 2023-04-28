@@ -3,7 +3,7 @@
 
 	export let type: 'text' | 'number' | 'email' | 'password' | 'date' = 'text';
 	export let name: string;
-	export let id = '';
+	export let id = name;
 	export let error: string | null = null;
 	export let value: string | number | Date | null = null;
 	export let label: string | null = null;
