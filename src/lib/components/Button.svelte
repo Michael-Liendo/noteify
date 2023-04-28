@@ -10,7 +10,7 @@
 
 	let className = classNames(
 		customClassNames,
-		'bg-black px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800',
+		'bg-black px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300',
 		{
 			'w-full': fullWidth,
 			'!cursor-not-allowed !opacity-50 !bg-gray-700 !text-white': disabled

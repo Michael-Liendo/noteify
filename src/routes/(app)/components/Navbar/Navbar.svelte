@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Close from '~icons/mdi/close';
-	import Hamburger from '~icons/mdi/hamburger';
+	import Hamburger from '~icons/mdi/menu';
 
 	import Profile from './Profile.svelte';
 
@@ -14,7 +14,7 @@
 		<div class="flex items-center justify-between">
 			<div class="flex items-center justify-start">
 				<button
-					class="p-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100"
+					class="p-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100"
 					on:click={toggleMobileMenu}
 				>
 					{#if isMobileMenuOpen}
