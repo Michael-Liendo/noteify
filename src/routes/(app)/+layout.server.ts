@@ -14,8 +14,8 @@ export const load: LayoutServerLoad = ({
 		};
 	};
 }) => {
-	if (locals.user || locals.accessToken) {
-		throw redirect(302, '/');
+	if (!locals.user || !locals.accessToken) {
+		throw redirect(302, '/login');
 	}
 
 	return {
