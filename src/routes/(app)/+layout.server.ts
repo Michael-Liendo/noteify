@@ -6,12 +6,12 @@ export const load: LayoutServerLoad = ({
 	locals
 }: {
 	locals: {
-		accessToken?: string;
+		accessToken?: string | null;
 		user?: {
 			id: string;
 			full_name: string;
 			email: string;
-		};
+		} | null;
 	};
 }) => {
 	if (!locals.user || !locals.accessToken) {
