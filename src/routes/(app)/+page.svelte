@@ -19,7 +19,7 @@
 		onSubmit: async (values) => {
 			try {
 				const response = await fetch('/', {
-					method: 'delete',
+					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
 					},

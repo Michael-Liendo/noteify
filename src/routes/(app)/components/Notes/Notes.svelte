@@ -35,12 +35,12 @@
 	};
 </script>
 
-<div class="grid grid-cols-6 gap-4 mt-5">
+<div class="grid grid-cols-4 gap-4 mt-10 mx-5">
 	{#if $pageStore.data.notes}
 		{#each $pageStore.data.notes as note}
-			<Card class="ml-5">
+			<Card class="">
 				<div class="flex justify-between">
-					<h3 class="text-xl font-bold">{note.title}</h3>
+					<h3 title={note.title} class="text-xl font-bold">{note.title}</h3>
 					<button
 						class="bg-transparent"
 						on:click={() => {
@@ -50,7 +50,8 @@
 						<TrashIcon class="w-6 h-5 text-gray-500 cursor-pointer" />
 					</button>
 				</div>
-				<p>{note.content}</p>
+				<!-- note content truncate -->
+				<p class="mt-2 text-gray-500 overflow-hidden">{note.content}</p>
 			</Card>
 		{/each}
 	{/if}
