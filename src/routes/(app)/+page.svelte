@@ -6,6 +6,7 @@
 	import TextField from '$lib/components/TextField.svelte';
 	import { newForm } from '@whizzes/svelte-forms';
 	import * as Yup from 'yup';
+	import Notes from './components/Notes/Notes.svelte';
 
 	const pageStore = writable($page);
 
@@ -18,7 +19,7 @@
 		onSubmit: async (values) => {
 			try {
 				const response = await fetch('/', {
-					method: 'POST',
+					method: 'delete',
 					headers: {
 						'Content-Type': 'application/json'
 					},
@@ -28,7 +29,7 @@
 
 				if (success) {
 					pageStore.update((page) => {
-						return { ...page, data: { ...page.data, notes: [...(page.data.notes as any), data] } };
+						return { ...page, data: { ...page.data, notes: [data, ...(page.data.notes as any)] } };
 					});
 				}
 
@@ -40,6 +41,10 @@
 		}
 	});
 </script>
+
+<svelte:head>
+	<title>Home</title>
+</svelte:head>
 
 <h2 class="text-center text-3xl mt-2">Hi, {$page.data.user?.full_name}</h2>
 <div class="flex justify-center mt-5">
@@ -59,14 +64,4 @@
 	</Card>
 </div>
 
-<div class="grid grid-cols-3 gap-4 mt-5">
-	<!-- list notes -->
-	{#if $pageStore.data.notes}
-		{#each $pageStore.data.notes as note}
-			<Card class=" ml-5">
-				<h3 class="text-xl font-bold">{note.title}</h3>
-				<p>{note.content}</p>
-			</Card>
-		{/each}
-	{/if}
-</div>
+<Notes {pageStore} />

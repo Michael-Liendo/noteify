@@ -18,3 +18,21 @@ export async function POST({ cookies, request }: { cookies: Cookies; request: Re
 
 	return new Response(JSON.stringify(data), { status: data.statusCode });
 }
+
+export async function DELETE({ cookies, request }: { cookies: Cookies; request: Request }) {
+	const requestBody = await request.json();
+
+	const { id } = requestBody;
+
+	const response = await fetch(`http://127.0.0.1:7878/api/notes/${id}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `JWT ${cookies.get('accessToken')}`
+		}
+	});
+
+	const data = await response.json();
+
+	return new Response(JSON.stringify(data), { status: data.statusCode });
+}
