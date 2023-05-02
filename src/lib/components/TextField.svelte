@@ -38,6 +38,9 @@
 	class={className}
 	on:change
 	on:blur
+	on:focus
 	on:input={handleInput}
 />
-<p class:opacity-0={!error} class="text-sm pb-1 text-red-600">{error}</p>
+{#if error}
+	<p class:opacity-0={!error} class="text-sm pb-1 text-red-600">{error}</p>
+{/if}

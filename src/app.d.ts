@@ -15,6 +15,13 @@ declare global {
 				full_name: string;
 				email: string;
 			} | null;
+			notes?:
+				| {
+						id: string;
+						title: string;
+						content: string;
+				  }[]
+				| null;
 		}
 
 		interface Locals {
@@ -24,6 +31,13 @@ declare global {
 				full_name: string;
 				email: string;
 			} | null;
+			notes?:
+				| {
+						id: string;
+						title: string;
+						content: string;
+				  }[]
+				| null;
 		}
 	}
 }

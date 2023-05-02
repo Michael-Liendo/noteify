@@ -7,6 +7,13 @@ export const load: LayoutServerLoad = ({
 }: {
 	locals: {
 		accessToken?: string | null;
+		notes?:
+			| {
+					id: string;
+					title: string;
+					content: string;
+			  }[]
+			| null;
 		user?: {
 			id: string;
 			full_name: string;
@@ -20,6 +27,7 @@ export const load: LayoutServerLoad = ({
 
 	return {
 		accessToken: locals.accessToken,
-		user: locals.user
+		user: locals.user,
+		notes: locals.notes
 	};
 };
