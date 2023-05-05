@@ -1,11 +1,17 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/Card.svelte';
 	import type { Page } from '@sveltejs/kit';
 	import type { Writable } from 'svelte/store';
 	import TrashIcon from '~icons/mdi/delete-outline';
+	import NoteModal from './NoteModal.svelte';
 
 	export let pageStore: Writable<Page>;
+
+	let noteIdOpen: string | null = null;
+
+	function closeModal() {
+		noteIdOpen = null;
+	}
 
 	const removeNote = async (id: string) => {
 		try {
@@ -38,21 +44,30 @@
 <div class="grid grid-cols-4 gap-4 mt-10 mx-5">
 	{#if $pageStore.data.notes}
 		{#each $pageStore.data.notes as note}
-			<Card class="">
-				<div class="flex justify-between">
-					<h3 title={note.title} class="text-xl font-bold">{note.title}</h3>
-					<button
-						class="bg-transparent"
-						on:click={() => {
-							removeNote(note.id);
-						}}
-					>
-						<TrashIcon class="w-6 h-5 text-gray-500 cursor-pointer" />
-					</button>
-				</div>
-				<!-- note content truncate -->
-				<p class="mt-2 text-gray-500 overflow-hidden">{note.content}</p>
-			</Card>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<div
+				on:click={() => {
+					noteIdOpen = note.id;
+				}}
+			>
+				<Card>
+					<div class="flex justify-between">
+						<h3 title={note.title} class="text-xl font-bold">{note.title}</h3>
+						<button
+							class="bg-transparent"
+							on:click={() => {
+								removeNote(note.id);
+							}}
+						>
+							<TrashIcon class="w-6 h-5 text-gray-500 cursor-pointer" />
+						</button>
+					</div>
+					<p class="mt-2 text-gray-500 overflow-hidden">{note.content}</p>
+				</Card>
+			</div>
+			{#if noteIdOpen === note.id}
+				<NoteModal {note} {closeModal} />
+			{/if}
 		{/each}
 	{/if}
 </div>
