@@ -50,10 +50,15 @@
 <div class="flex justify-center mt-5">
 	<Card class="w-1/3">
 		<form on:submit={handleSubmit}>
-			<TextField bind:value={$values.title} name="title" placeholder="Title" />
+			<TextField
+				bind:value={$values.title}
+				name="title"
+				placeholder="Title"
+				class="border-b-transparent rounded-b-none"
+			/>
 			<textarea
 				bind:value={$values.content}
-				class="w-full h-20 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5"
+				class="w-full h-20 border border-t-transparent border-gray-300 rounded-lg rounded-t-none focus:ring-primary-500 focus:border-primary-500 block p-2.5"
 				placeholder="Take a note..."
 				required
 			/>
