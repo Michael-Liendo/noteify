@@ -37,6 +37,7 @@
 			}
 		} catch (error) {
 			console.log(error);
+			// todo: show error message
 		}
 	};
 </script>
@@ -66,7 +67,9 @@
 				</Card>
 			</div>
 			{#if noteIdOpen === note.id}
-				<NoteModal {note} {closeModal} />
+				<div class="fixed top-0 left-0 w-full h-full z-50">
+					<NoteModal {note} {closeModal} />
+				</div>
 			{/if}
 		{/each}
 	{/if}
