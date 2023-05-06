@@ -64,7 +64,7 @@
 	};
 </script>
 
-<div class="grid grid-cols-4 gap-4 mt-10 mx-5">
+<div class="masonry sm:masonry-sm md:masonry-md mt-10 mx-5">
 	{#if $pageStore.data.notes}
 		{#each $pageStore.data.notes as note}
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -73,7 +73,7 @@
 					noteIdOpen = note.id;
 				}}
 			>
-				<Card>
+				<Card class="mt-2 break-inside">
 					<div class="flex justify-between">
 						<h3 title={note.title} class="text-xl font-bold">{note.title}</h3>
 						<button
@@ -96,3 +96,6 @@
 		{/each}
 	{/if}
 </div>
+
+<style>
+</style>

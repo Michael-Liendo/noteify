@@ -44,7 +44,7 @@
 		<div
 			use:clickOutside
 			on:clickOutside={toClose}
-			class="relative w-[40vw] h-[50vh] overflow-y-scroll bg-white rounded-md"
+			class="relative w-screen sm:w-[40vw] h-[50vh] overflow-y-scroll bg-white rounded-md"
 			transition:scale
 		>
 			<div class="absolute right-1">
