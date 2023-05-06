@@ -13,6 +13,28 @@
 		noteIdOpen = null;
 	}
 
+	// function to update the page store
+	async function updateNotesPageStore() {
+		try {
+			const response = await fetch('/');
+			const data = await response.json();
+
+			if (data.success) {
+				pageStore.update((page) => {
+					return {
+						...page,
+						data: {
+							...page.data,
+							notes: data.data
+						}
+					};
+				});
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 	const removeNote = async (id: string) => {
 		try {
 			const response = await fetch('/', {
@@ -68,7 +90,7 @@
 			</div>
 			{#if noteIdOpen === note.id}
 				<div class="fixed top-0 left-0 w-full h-full z-50">
-					<NoteModal {note} {closeModal} />
+					<NoteModal {note} {closeModal} {updateNotesPageStore} />
 				</div>
 			{/if}
 		{/each}
