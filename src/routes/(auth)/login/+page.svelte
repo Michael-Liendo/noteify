@@ -13,7 +13,13 @@
 		},
 		validationSchema: Yup.object({
 			email: Yup.string().email().required(),
-			password: Yup.string().required()
+			password: Yup.string()
+				.min(8)
+				.matches(
+					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\da-zA-Z]).{8,}$/,
+					'Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character'
+				)
+				.required()
 		}),
 		onSubmit: async (values) => {
 			const request = await fetch('/login', {
@@ -40,7 +46,7 @@
 	<Card class="container md:w-[45vw] 2xl:w-[25vw]">
 		<h1 class="text-2xl font-bold text-gray-900">Welcome back!</h1>
 		<span>Don't have an account? <a href="/signup">Sign up</a></span>
-		<form on:submit={handleSubmit} class="mt-4">
+		<form on:submit={handleSubmit} class="mt-4 space-y-2.5">
 			<TextField
 				type="email"
 				name="email"
