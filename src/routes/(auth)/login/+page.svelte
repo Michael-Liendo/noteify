@@ -4,6 +4,7 @@
 	import TextField from '$lib/components/TextField.svelte';
 
 	import { newForm } from '@whizzes/svelte-forms';
+	import { notifications } from '@whizzes/svelte-notifications';
 	import * as Yup from 'yup';
 
 	const { handleSubmit, values, errors, isSubmitting } = newForm({
@@ -13,13 +14,7 @@
 		},
 		validationSchema: Yup.object({
 			email: Yup.string().email().required(),
-			password: Yup.string()
-				.min(8)
-				.matches(
-					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\da-zA-Z]).{8,}$/,
-					'Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character'
-				)
-				.required()
+			password: Yup.string().required()
 		}),
 		onSubmit: async (values) => {
 			const request = await fetch('/login', {
@@ -30,9 +25,10 @@
 			const response = await request.json();
 
 			if (response.success) {
+				notifications.notifySuccess('You have successfully signed in!', 'Signed in');
 				window.location.href = '/';
 			} else {
-				alert(response.error.message);
+				notifications.notifyWarning(response.error.message, "Couldn't sign in");
 			}
 		}
 	});

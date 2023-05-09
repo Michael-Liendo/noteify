@@ -4,6 +4,8 @@
 	import TextField from '$lib/components/TextField.svelte';
 
 	import { newForm } from '@whizzes/svelte-forms';
+	import { notifications } from '@whizzes/svelte-notifications';
+	import notificationStore from '@whizzes/svelte-notifications/dist/stores/notifications';
 	import * as Yup from 'yup';
 
 	const { handleSubmit, values, errors, isSubmitting } = newForm({
@@ -33,8 +35,9 @@
 
 			if (response.success) {
 				window.location.href = '/';
+				notifications.notifySuccess('You have successfully signed up!', 'Signed up');
 			} else {
-				alert(response.error.message);
+				notifications.notifyWarning(response.error.message, "Couldn't sign up");
 			}
 		}
 	});
