@@ -5,7 +5,6 @@
 
 	import { newForm } from '@whizzes/svelte-forms';
 	import { notifications } from '@whizzes/svelte-notifications';
-	import notificationStore from '@whizzes/svelte-notifications/dist/stores/notifications';
 	import * as Yup from 'yup';
 
 	const { handleSubmit, values, errors, isSubmitting } = newForm({
@@ -47,39 +46,37 @@
 	<title>Sign up - Noteify</title>
 </svelte:head>
 
-<div class="flex items-center justify-center min-h-screen">
-	<Card class="container md:w-[45vw] 2xl:w-[25vw]">
-		<h1 class="text-2xl font-bold text-gray-900">Create a account!</h1>
-		<span>You have a account? <a href="/login">login</a></span>
-		<form on:submit={handleSubmit} class="mt-4 space-y-2.5">
-			<TextField
-				type="text"
-				name="full_name"
-				label="Full name"
-				placeholder="Joe Doe"
-				bind:value={$values.full_name}
-				error={$errors.full_name}
-				required
-			/>
-			<TextField
-				type="email"
-				name="email"
-				label="Email"
-				placeholder="Enter your email"
-				bind:value={$values.email}
-				error={$errors.email}
-				required
-			/>
-			<TextField
-				name="password"
-				type="password"
-				label="Password"
-				placeholder="* * * * * * * * *"
-				bind:value={$values.password}
-				error={$errors.password}
-				required
-			/>
-			<Button type="submit" fullWidth disabled={$isSubmitting}>Create your account</Button>
-		</form>
-	</Card>
-</div>
+<Card class="container md:w-[45vw] 2xl:w-[25vw]">
+	<h1 class="text-2xl font-bold text-gray-900">Create a account!</h1>
+	<span>You have a account? <a class="text-accent font-medium" href="/login">Login</a></span>
+	<form on:submit={handleSubmit} class="mt-4 space-y-2.5">
+		<TextField
+			type="text"
+			name="full_name"
+			label="Full name"
+			placeholder="Joe Doe"
+			bind:value={$values.full_name}
+			error={$errors.full_name}
+			required
+		/>
+		<TextField
+			type="email"
+			name="email"
+			label="Email"
+			placeholder="Enter your email"
+			bind:value={$values.email}
+			error={$errors.email}
+			required
+		/>
+		<TextField
+			name="password"
+			type="password"
+			label="Password"
+			placeholder="* * * * * * * * *"
+			bind:value={$values.password}
+			error={$errors.password}
+			required
+		/>
+		<Button type="submit" fullWidth disabled={$isSubmitting}>Create your account</Button>
+	</form>
+</Card>

@@ -38,30 +38,28 @@
 	<title>Login - Noteify</title>
 </svelte:head>
 
-<div class="flex items-center justify-center min-h-screen">
-	<Card class="container md:w-[45vw] 2xl:w-[25vw]">
-		<h1 class="text-2xl font-bold text-gray-900">Welcome back!</h1>
-		<span>Don't have an account? <a href="/signup">Sign up</a></span>
-		<form on:submit={handleSubmit} class="mt-4 space-y-2.5">
-			<TextField
-				type="email"
-				name="email"
-				label="Email"
-				bind:value={$values.email}
-				error={$errors.email}
-				placeholder="Enter your email"
-				required
-			/>
-			<TextField
-				name="password"
-				type="password"
-				label="Password"
-				placeholder="* * * * * * * * *"
-				bind:value={$values.password}
-				error={$errors.password}
-				required
-			/>
-			<Button type="submit" fullWidth disabled={$isSubmitting}>Sign in</Button>
-		</form>
-	</Card>
-</div>
+<Card class="container md:w-[45vw] 2xl:w-[25vw]">
+	<h1 class="text-2xl font-bold text-gray-900">Welcome back!</h1>
+	<span>Don't have an account? <a class="text-accent font-medium" href="/signup">Sign up</a></span>
+	<form on:submit={handleSubmit} class="mt-4 space-y-2.5">
+		<TextField
+			type="email"
+			name="email"
+			label="Email"
+			bind:value={$values.email}
+			error={$errors.email}
+			placeholder="Enter your email"
+			required
+		/>
+		<TextField
+			name="password"
+			type="password"
+			label="Password"
+			placeholder="* * * * * * * * *"
+			bind:value={$values.password}
+			error={$errors.password}
+			required
+		/>
+		<Button type="submit" fullWidth disabled={$isSubmitting}>Sign in</Button>
+	</form>
+</Card>
