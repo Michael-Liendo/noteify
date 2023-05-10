@@ -9,4 +9,4 @@
 	<Notification
 		notification={{ id: 'ds', message: 'hod', title: 'g', time: 1, kind: NotificationKind.Success }}
 	/>
-</NotificationList>>
+</NotificationList>

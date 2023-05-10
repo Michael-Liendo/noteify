@@ -6,7 +6,10 @@
 </script>
 
 <div
-	class={classNames('p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6', className)}
+	class={classNames(
+		'p-4 bg-background-alt border border-gray-200 rounded-lg shadow-xl sm:p-6',
+		className
+	)}
 >
 	<slot />
 </div>

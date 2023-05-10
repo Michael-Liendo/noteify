@@ -14,7 +14,7 @@
 	export { customClassNames as class };
 	let className = classNames(
 		customClassNames,
-		'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5'
+		'bg-background border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5'
 	);
 	const handleInput = (event: Event): void => {
 		const target = event.target as HTMLInputElement;
