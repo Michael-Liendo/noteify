@@ -14,7 +14,7 @@
 		<button
 			on:click={handleDropdownClick}
 			type="button"
-			class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300600"
+			class="flex border text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300600"
 			id="user-menu-button"
 			aria-expanded="false"
 			data-dropdown-toggle="dropdown-2"

@@ -58,7 +58,7 @@
 			/>
 			<textarea
 				bind:value={$values.content}
-				class="w-full h-20 border border-t-transparent border-gray-300 rounded-lg rounded-t-none focus:ring-primary-500 focus:border-primary-500 block p-2.5"
+				class="bg-background w-full h-20 border border-t-transparent border-gray-300 rounded-lg rounded-t-none focus:ring-primary-500 focus:border-primary-500 block p-2.5"
 				placeholder="Take a note..."
 				required
 			/>

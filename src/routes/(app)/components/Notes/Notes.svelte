@@ -75,7 +75,7 @@
 			>
 				<Card class="mt-5 shadow-md break-inside">
 					<div class="flex justify-between">
-						<h3 title={note.title} class="text-xl font-bold">{note.title}</h3>
+						<h3 title={note.title} class="text-xl text-yellow font-bold">{note.title}</h3>
 						<button
 							class="bg-transparent"
 							on:click={() => {

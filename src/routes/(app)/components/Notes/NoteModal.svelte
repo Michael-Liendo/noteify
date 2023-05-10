@@ -44,7 +44,7 @@
 		<div
 			use:clickOutside
 			on:clickOutside={toClose}
-			class="relative w-screen sm:w-[40vw] h-[50vh] overflow-y-scroll bg-white rounded-md"
+			class="relative w-screen sm:w-[40vw] h-[50vh] overflow-y-scroll border bg-background rounded-md"
 			transition:scale
 		>
 			<div class="absolute right-1">
@@ -59,7 +59,7 @@
 					{note.content}
 				</p>
 			</div>
-			<div class="fixed right-1">
+			<div class="fixed bottom-2 right-8">
 				<Button on:click={toClose}>Close</Button>
 			</div>
 		</div>
