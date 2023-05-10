@@ -9,6 +9,15 @@
 	font-style: normal;
 }
 
+@layer base {
+	html {
+		@apply text-primary;
+	}
+	body {
+		@apply bg-background;
+	}
+}
+
 @layer utilities {
 	@layer responsive {
 		.masonry {
