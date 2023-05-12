@@ -1,7 +1,8 @@
 import type { Handle } from '@sveltejs/kit';
+import { API_URL } from '$env/static/private';
 
 async function getUserDetails(accessToken: string) {
-	const response = await fetch('http://127.0.0.1:7878/api/users/user/', {
+	const response = await fetch(`${API_URL}/api/users/user/`, {
 		headers: {
 			Authorization: `JWT ${accessToken}`
 		}
@@ -17,7 +18,7 @@ async function getUserDetails(accessToken: string) {
 
 // get user notes
 async function getUserNotes(accessToken: string) {
-	const response = await fetch('http://127.0.0.1:7878/api/notes', {
+	const response = await fetch(`${API_URL}/api/notes`, {
 		headers: {
 			Authorization: `JWT ${accessToken}`
 		}

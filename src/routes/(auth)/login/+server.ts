@@ -1,11 +1,12 @@
 import type { Cookies } from '@sveltejs/kit';
+import { API_URL } from '$env/static/private';
 
 export async function POST({ cookies, request }: { cookies: Cookies; request: Request }) {
 	const requestBody = await request.json();
 
 	const { email, password } = requestBody;
 
-	const response = await fetch(`http://127.0.0.1:7878/api/auth/login`, {
+	const response = await fetch(`${API_URL}/api/auth/login`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'

@@ -1,7 +1,8 @@
 import type { Cookies } from '@sveltejs/kit';
+import { API_URL } from '$env/static/private';
 
 export async function GET({ cookies }: { cookies: Cookies }) {
-	const response = await fetch(`http://127.0.0.1:7878/api/notes`, {
+	const response = await fetch(`${API_URL}/api/notes`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -19,7 +20,7 @@ export async function POST({ cookies, request }: { cookies: Cookies; request: Re
 
 	const { title, content } = requestBody;
 
-	const response = await fetch(`http://127.0.0.1:7878/api/notes`, {
+	const response = await fetch(`${API_URL}/api/notes`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -38,7 +39,7 @@ export async function PUT({ cookies, request }: { cookies: Cookies; request: Req
 
 	const { id, title, content } = requestBody;
 
-	const response = await fetch(`http://127.0.0.1:7878/api/notes/${id}`, {
+	const response = await fetch(`${API_URL}/api/notes/${id}`, {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json',
@@ -57,7 +58,7 @@ export async function DELETE({ cookies, request }: { cookies: Cookies; request: 
 
 	const { id } = requestBody;
 
-	const response = await fetch(`http://127.0.0.1:7878/api/notes/${id}`, {
+	const response = await fetch(`${API_URL}/api/notes/${id}`, {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json',
