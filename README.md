@@ -19,7 +19,3 @@ npm run dev
 ```
 
 This will start a development server at [http://localhost:5173](http://localhost:5173), where you can access the Noteify application in your web browser.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
